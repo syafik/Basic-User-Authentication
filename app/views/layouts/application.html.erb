@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Basic User Authentication</title>
+    <%= javascript_include_tag :defaults %>
+    <!--[if lt IE 7]>
+<script defer type="text/javascript" src="/javascripts/pngfix.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div style="float:right">
+      <% if current_user %>
+         <%= link_to "logout", logout_path %>
+      <% else %>
+         <%= link_to "Signup", signup_path %> |
+         <%= link_to "Login", login_path %> |
+      <% end %>
+    </div>
+    <div style="clear:both"></div>
+    <%= flash[:notice] %>
+    <%= flash[:error] %>
+    <%= yield %>
+  </body>
+</html>
